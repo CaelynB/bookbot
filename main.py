@@ -12,10 +12,25 @@ def get_book_text(filename):
             return file.read()
     except FileNotFoundError:
         return "The specified book file does not exist."
+    
+def book_word_count(text):
+    """
+    counts the number of words in the book text.
+    
+    :param text: The content of the book as a string.
+    :return: The number of words in the book text.
+    """
+
+    # split the text into words and count them.
+    return len(text.split())
 
 def main():
     # print the book text from the specified file.
     book_text = get_book_text("books/frankenstein.txt")
     print(book_text)
+
+    # count the total number of words in the book text.
+    word_count = book_word_count(book_text)
+    print(f"{word_count} words found in the document")
 
 main()
