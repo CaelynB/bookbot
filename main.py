@@ -1,3 +1,4 @@
+from sys import argv
 from stats import book_word_count, repeat_character_count, sorted_list
 
 def get_book_text(filename):
@@ -16,8 +17,16 @@ def get_book_text(filename):
         return "The specified book file does not exist."
 
 def main():
+    # check if the user has provided a file path as an argument.
+    if len(argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        exit(1)
+
+    # get the file path from the command line arguments.
+    file_path = argv[1]
+
     # read the book text from the specified file.
-    book_text = get_book_text("books/frankenstein.txt")
+    book_text = get_book_text(file_path)
 
     # count the total number of words in the book text.
     word_count = book_word_count(book_text)
@@ -27,7 +36,7 @@ def main():
 
     # print the analysis results.
     print("============ BOOKBOT ============")
-    print(f"Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {file_path}...")
     print("----------- Word Count ----------")
     print(f"Found {word_count} total words")
     print("--------- Character Count -------")
