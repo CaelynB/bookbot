@@ -1,4 +1,4 @@
-from stats import book_word_count
+from stats import book_word_count, repeat_character_count
 
 def get_book_text(filename):
     """
@@ -23,5 +23,9 @@ def main():
     # count the total number of words in the book text.
     word_count = book_word_count(book_text)
     print(f"{word_count} words found in the document")
+
+    # count the occurrences of each character in the book text.
+    character_stats = repeat_character_count(book_text)
+    print(character_stats)
 
 main()
