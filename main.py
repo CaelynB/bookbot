@@ -1,4 +1,4 @@
-from stats import book_word_count, repeat_character_count
+from stats import book_word_count, repeat_character_count, sorted_list
 
 def get_book_text(filename):
     """
@@ -16,16 +16,22 @@ def get_book_text(filename):
         return "The specified book file does not exist."
 
 def main():
-    # print the book text from the specified file.
+    # read the book text from the specified file.
     book_text = get_book_text("books/frankenstein.txt")
-    print(book_text)
 
     # count the total number of words in the book text.
     word_count = book_word_count(book_text)
-    print(f"{word_count} words found in the document")
 
     # count the occurrences of each character in the book text.
     character_stats = repeat_character_count(book_text)
-    print(character_stats)
+
+    # print the analysis results.
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    sorted_list(character_stats)
+    print("============= END ===============")
 
 main()

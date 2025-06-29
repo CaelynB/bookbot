@@ -31,3 +31,17 @@ def repeat_character_count(text):
             character_counts[char] = 1
 
     return character_counts
+
+def sorted_list(character_counts):
+    """
+    sorts the character count dictionary by the number of occurrences.
+    
+    :param character_counts: A dictionary with characters as keys and their counts as values.
+    :return: A sorted list of tuples (character, count) in descending order.
+    """
+
+    # sort the character counts in descending order and print them.
+    for char, count in sorted(character_counts.items(), key=lambda item: item[1], reverse=True):
+        # only print alphabetic characters.
+        if char.isalpha():
+            print(f"{char}: {count}")
