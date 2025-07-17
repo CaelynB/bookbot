@@ -23,13 +23,16 @@ def repeat_character_count(text):
     # create a dictionary to hold the character counts.
     character_counts = {}
 
+    # for each character in the text.
     for char in text:
-        # increment the count for each character in the dictionary.
+        # if the character is already in the dictionary, increment its count.
         if char in character_counts:
             character_counts[char] += 1
+        # otherwise, add it to the dictionary with a count of 1.
         else:
             character_counts[char] = 1
 
+    # return the character counts dictionary.
     return character_counts
 
 def sorted_list(character_counts):
@@ -40,8 +43,8 @@ def sorted_list(character_counts):
     :return: A sorted list of tuples (character, count) in descending order.
     """
 
-    # sort the character counts in descending order and print them.
+    # sort the character counts in descending order.
     for char, count in sorted(character_counts.items(), key=lambda item: item[1], reverse=True):
-        # only print alphabetic characters.
+        # if the character is an alphabetic character, print it.
         if char.isalpha():
             print(f"{char}: {count}")

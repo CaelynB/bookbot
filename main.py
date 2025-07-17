@@ -17,7 +17,7 @@ def get_book_text(filename):
         return "The specified book file does not exist."
 
 def main():
-    # check if the user has provided a file path as an argument.
+    # if no file path is provided, print usage instructions and exit.
     if len(argv) < 2:
         print("Usage: python3 main.py <path_to_book>")
         exit(1)
